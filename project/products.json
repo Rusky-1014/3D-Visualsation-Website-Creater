@@ -1,0 +1,8 @@
+[
+  {
+    "id": 1,
+    "name": "Apple Vision Pro",
+    "description": "Sample model",
+    "model": "apple_vision_pro.glb"
+  }
+]

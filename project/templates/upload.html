@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Product</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+</head>
+<body>
+<center>
+<h2>Upload New Product</h2>
+
+<div class="card">
+    <form method="POST" enctype="multipart/form-data">
+        <input type="text" name="name" placeholder="Product Name" required><br><br>
+
+        <textarea name="description" placeholder="Product Description" required></textarea><br><br>
+
+        <input type="file" name="model" accept=".glb" required><br><br>
+
+        <button type="submit">Upload</button>
+    </form>
+
+</div>
+</center>
+</body>
+</html>

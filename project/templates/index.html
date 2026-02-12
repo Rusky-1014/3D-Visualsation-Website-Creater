@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Showcase</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+
+<header class="nav">
+    <div class="logo">Product Showcase</div>
+    <div>
+        <a href="/upload"><button>Upload</button></a>
+        <a href="/logout"><button>Logout</button></a>
+    </div>
+</header>
+
+<div class="product-container">
+
+    <p>Logged in as: {{ role }}</p>
+
+    {% if products %}
+    <div class="product-grid">
+        {% for product in products %}
+        <div class="product-card">
+            <h3>{{ product.name }}</h3>
+            <p>{{ product.description }}</p>
+
+            <a href="{{ url_for('viewer', model=product.model) }}">
+                <button>View in 3D</button>
+            </a>
+
+            {% if role == 'admin' %}
+            <a href="/delete/{{ product.id }}">
+                <button style="background:red;color:white;">Delete</button>
+            </a>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+        <p>No products available.</p>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
