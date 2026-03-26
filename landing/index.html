@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ThreeStage — 3D Website Builder</title>
+  <meta name="description"
+    content="Build stunning scroll-driven 3D product websites without writing a single line of code. Upload your 3D model and create Apple-quality experiences.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="landing.css">
+</head>
+
+<body>
+
+  <!-- ─── MOUSE TRAIL CANVAS (full page) ─── -->
+  <canvas id="trail-canvas"></canvas>
+
+  <!-- ─── HERO CANVAS (Full viewport Three.js) ─── -->
+  <canvas id="hero-canvas"></canvas>
+
+  <!-- ─── DUST PARTICLES CANVAS (full page) ─── -->
+  <canvas id="dust-canvas"></canvas>
+
+  <!-- ─── CUTE OWL MASCOT ─── -->
+  <div id="mascot">
+    <svg viewBox="0 0 120 140" width="100" height="116" xmlns="http://www.w3.org/2000/svg">
+      <!-- Body -->
+      <ellipse cx="60" cy="90" rx="42" ry="45" fill="#1a1a2e" stroke="rgba(0,102,255,0.3)" stroke-width="1.5" />
+      <!-- Belly -->
+      <ellipse cx="60" cy="100" rx="24" ry="28" fill="#12122a" />
+      <!-- Left ear -->
+      <polygon points="28,52 18,22 42,45" fill="#1a1a2e" stroke="rgba(0,102,255,0.3)" stroke-width="1.5" />
+      <polygon points="30,50 23,30 40,46" fill="#0d0d20" />
+      <!-- Right ear -->
+      <polygon points="92,52 102,22 78,45" fill="#1a1a2e" stroke="rgba(0,102,255,0.3)" stroke-width="1.5" />
+      <polygon points="90,50 97,30 80,46" fill="#0d0d20" />
+      <!-- Head -->
+      <circle cx="60" cy="55" r="32" fill="#1a1a2e" stroke="rgba(0,102,255,0.3)" stroke-width="1.5" />
+      <!-- Left eye socket -->
+      <circle cx="45" cy="52" r="14" fill="#0d0d20" />
+      <!-- Right eye socket -->
+      <circle cx="75" cy="52" r="14" fill="#0d0d20" />
+      <!-- Left eye (dynamic) -->
+      <circle class="owl-eye-white" cx="45" cy="52" r="10" fill="#111133" />
+      <circle class="owl-pupil owl-pupil-left" cx="45" cy="52" r="5" fill="#00ccff" />
+      <circle class="owl-pupil-dot owl-pupil-dot-left" cx="46" cy="50" r="2" fill="#fff" />
+      <!-- Right eye (dynamic) -->
+      <circle class="owl-eye-white" cx="75" cy="52" r="10" fill="#111133" />
+      <circle class="owl-pupil owl-pupil-right" cx="75" cy="52" r="5" fill="#00ccff" />
+      <circle class="owl-pupil-dot owl-pupil-dot-right" cx="76" cy="50" r="2" fill="#fff" />
+      <!-- Beak -->
+      <polygon points="55,62 65,62 60,70" fill="#f0a030" />
+      <!-- Feet -->
+      <ellipse cx="45" cy="133" rx="12" ry="5" fill="#f0a030" />
+      <ellipse cx="75" cy="133" rx="12" ry="5" fill="#f0a030" />
+      <!-- Wing left -->
+      <path d="M18,75 Q8,90 22,110 Q30,100 28,80 Z" fill="#151530" stroke="rgba(0,102,255,0.2)" stroke-width="1" />
+      <!-- Wing right -->
+      <path d="M102,75 Q112,90 98,110 Q90,100 92,80 Z" fill="#151530" stroke="rgba(0,102,255,0.2)" stroke-width="1" />
+    </svg>
+    <div class="mascot-bubble" id="mascot-bubble">Hey! Scroll down! 🦉</div>
+  </div>
+
+  <!-- ─── CURSOR GLOW ─── -->
+  <div id="cursor-glow"></div>
+
+  <!-- ─── NAVIGATION ─── -->
+  <nav id="main-nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">ThreeStage</a>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#workflow">How It Works</a>
+        <a href="#showcase">Showcase</a>
+      </div>
+      <a href="/auth/" class="nav-cta">Launch Editor →</a>
+    </div>
+  </nav>
+
+  <!-- ─── HERO SECTION ─── -->
+  <section id="hero" class="section">
+    <div class="hero-content">
+      <div class="hero-badge" id="hero-badge">✨ No-Code 3D Website Builder</div>
+      <h1 id="hero-title">
+        <span class="hero-line">Build Cinematic</span>
+        <span class="hero-line gradient-text">3D Product Websites</span>
+        <span class="hero-line">In Minutes, Not Months.</span>
+      </h1>
+
+      <p class="hero-subtitle" id="hero-subtitle">
+        Upload your 3D model. Choreograph scroll-driven animations. Deploy a stunning, Apple-quality product page —
+        zero
+        coding required.
+      </p>
+      <div class="hero-actions" id="hero-actions">
+        <a href="/auth/" class="cta-button primary-cta">
+          <span>Start Building Free</span>
+          <span class="cta-arrow">→</span>
+        </a>
+        <a href="/viewer/" class="cta-button secondary-cta">
+          <span>See Demo</span>
+        </a>
+
+      </div>
+      <div class="hero-stats" id="hero-stats">
+        <div class="stat"><span class="stat-number">∞</span><span class="stat-label">Scroll Animations</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-number">20+</span><span class="stat-label">Font Families</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-number">1-Click</span><span class="stat-label">Deploy to Web</span></div>
+      </div>
+
+    </div>
+    <div class="scroll-indicator" id="scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>Discover</span>
+    </div>
+  </section>
+
+  <!-- ─── FEATURES SECTION ─── -->
+  <section id="features" class="section">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-tag">Capabilities</span>
+        <h2>Everything You Need<br><span class="gradient-text">To Wow Your Audience</span></h2>
+        <p class="section-desc">A complete design studio for creating immersive 3D web experiences. No plugins. No
+          frameworks. Just results.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card feature-card-large" id="feat-1">
+          <div class="feature-icon">🧊</div>
+          <h3>3D Model Canvas</h3>
+          <p>Upload .glb or .gltf files and see them instantly rendered in a real-time Three.js viewport. Orbit, zoom,
+            and frame your perfect shot for every single slide.</p>
+          <div class="feature-glow"></div>
+        </div>
+        <div class="feature-card" id="feat-2">
+          <div class="feature-icon">🎬</div>
+          <h3>Scroll Choreography</h3>
+          <p>Define camera keyframes per slide. GSAP ScrollTrigger smoothly interpolates between them as visitors scroll
+            — just like Apple's product pages.</p>
+          <div class="feature-glow"></div>
+        </div>
+        <div class="feature-card" id="feat-3">
+          <div class="feature-icon">🔤</div>
+          <h3>Rich Typography</h3>
+          <p>20+ curated fonts with full control: weight, style, color, size, spacing, rotation, backgrounds, and more.
+            Drag to position anywhere on canvas.</p>
+          <div class="feature-glow"></div>
+        </div>
+        <div class="feature-card" id="feat-4">
+          <div class="feature-icon">📦</div>
+          <h3>Multi-Model Support</h3>
+          <p>Load multiple 3D models per slide. Show different products or components at each scroll stage. Complete
+            creative control.</p>
+          <div class="feature-glow"></div>
+        </div>
+        <div class="feature-card" id="feat-5">
+          <div class="feature-icon">🎨</div>
+          <h3>Background Transitions</h3>
+          <p>Set unique background colors per slide. They morph seamlessly during scroll, creating cinema-quality mood
+            transitions.</p>
+          <div class="feature-glow"></div>
+        </div>
+        <div class="feature-card feature-card-large" id="feat-6">
+          <div class="feature-icon">🚀</div>
+          <h3>One-Click Deploy</h3>
+          <p>Hit "Finalize & Deploy" and your site is exported as a standalone HTML file and deployed to Vercel in
+            seconds. No build step, no config, no DevOps.</p>
+          <div class="feature-glow"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── WORKFLOW SECTION ─── -->
+  <section id="workflow" class="section">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-tag">Simple Process</span>
+        <h2>From Upload to Live<br><span class="gradient-text">In Three Steps</span></h2>
+      </div>
+      <div class="workflow-steps">
+        <div class="workflow-step" id="wf-1">
+          <div class="step-number">01</div>
+          <div class="step-content">
+            <h3>Upload Your Model</h3>
+            <p>Drag your .glb file into the editor. It's automatically centered, lit, and ready for choreography.
+              Support for multiple models per project.</p>
+          </div>
+          <div class="step-visual">
+            <div class="step-mockup">
+              <div class="mockup-bar">
+                <span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
+              </div>
+              <div class="mockup-body">
+                <div class="mockup-dropzone">
+                  <span>📦</span>
+                  <p>Drop .glb here</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="workflow-step" id="wf-2">
+          <div class="step-number">02</div>
+          <div class="step-content">
+            <h3>Choreograph Slides</h3>
+            <p>Create slides, position the camera, add text overlays with rich formatting, set transitions, and preview
+              the scroll-driven animation in real time.</p>
+          </div>
+          <div class="step-visual">
+            <div class="step-mockup">
+              <div class="mockup-bar">
+                <span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
+              </div>
+              <div class="mockup-body">
+                <div class="mockup-editor">
+                  <div class="mock-canvas"></div>
+                  <div class="mock-sidebar"></div>
+                </div>
+                <div class="mock-timeline">
+                  <div class="mock-slide active"></div>
+                  <div class="mock-slide"></div>
+                  <div class="mock-slide"></div>
+                  <div class="mock-add">+</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="workflow-step" id="wf-3">
+          <div class="step-number">03</div>
+          <div class="step-content">
+            <h3>Deploy Instantly</h3>
+            <p>One click generates a standalone HTML file and deploys it to Vercel. Share the link and wow your
+              customers with a premium experience.</p>
+          </div>
+          <div class="step-visual">
+            <div class="step-mockup">
+              <div class="mockup-bar">
+                <span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
+              </div>
+              <div class="mockup-body deploy-mockup">
+                <div class="deploy-icon">🚀</div>
+                <div class="deploy-text">Deployed!</div>
+                <div class="deploy-url">yourproduct.vercel.app</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SHOWCASE / TECH SECTION ─── -->
+  <section id="showcase" class="section">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-tag">Under the Hood</span>
+        <h2>Built With<br><span class="gradient-text">Cutting-Edge Tech</span></h2>
+      </div>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <div class="tech-logo">▲</div>
+          <h4>Three.js</h4>
+          <p>Industry-standard WebGL library</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-logo">⚡</div>
+          <h4>GSAP</h4>
+          <p>Professional-grade animations</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-logo">◼</div>
+          <h4>ScrollTrigger</h4>
+          <p>Scroll-driven choreography</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-logo">▼</div>
+          <h4>Vercel</h4>
+          <p>Edge-deployed globally</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA SECTION ─── -->
+  <section id="cta-section" class="section">
+    <div class="cta-block">
+      <h2>Ready to Build<br><span class="gradient-text">Something Amazing?</span></h2>
+      <p>Transform your 3D models into unforgettable web experiences.</p>
+      <a href="/editor/" class="cta-button primary-cta cta-large">
+        <span>Launch the Editor</span>
+        <span class="cta-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <span class="footer-logo">ThreeStage</span>
+      <span class="footer-copy">© 2025 • Built for creators who demand more.</span>
+    </div>
+  </footer>
+
+  <!-- ─── Scripts ─── -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module" src="landing.js"></script>
+</body>
+
+</html>

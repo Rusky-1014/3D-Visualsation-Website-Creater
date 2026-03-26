@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ThreeStage — Editor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&family=Space+Grotesk:wght@300;400;500;700&family=Outfit:wght@300;400;500;600;700&family=Sora:wght@300;400;600;700&family=DM+Sans:wght@400;500;700&family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600;700&family=Lato:wght@300;400;700&family=Open+Sans:wght@300;400;600;700&family=Oswald:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&family=Nunito:wght@300;400;600;700&family=Bebas+Neue&family=Archivo+Black&family=Lobster&family=Righteous&family=Fredoka+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="editor.css">
+</head>
+<body>
+
+  <!-- ─── Toolbar ─────────────────────────────────────── -->
+  <header id="toolbar"></header>
+
+  <!-- ─── Main Layout ─────────────────────────────────── -->
+  <div id="main-content">
+    <!-- 3D Canvas -->
+    <div id="canvas-wrapper">
+      <canvas id="editor-canvas"></canvas>
+      <div id="overlay-container"></div>
+
+      <!-- Model Upload Drop Zone (shown when no model) -->
+      <div id="upload-zone" style="display:none;">
+        <div class="upload-inner">
+          <div class="upload-icon">📦</div>
+          <p>Drop your <strong>.glb</strong> model here</p>
+          <span>or click to browse</span>
+          <input type="file" id="model-file-input" accept=".glb,.gltf" hidden>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Sidebar -->
+    <aside id="sidebar"></aside>
+  </div>
+
+  <!-- ─── Timeline ────────────────────────────────────── -->
+  <div id="timeline"></div>
+
+  <!-- ─── Scripts ─────────────────────────────────────── -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module" src="editor.js"></script>
+</body>
+</html>
