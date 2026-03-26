@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apple Vision Pro — Spatial Computing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- Noise overlay -->
+    <div class="noise"></div>
+
+    <!-- Canvas (Three.js renders here, fixed behind everything) -->
+
+    <!-- ── SCROLL CONTAINER ────────────────────────────────────── -->
+    <div class="container" id="scroll-container">
+
+        <!-- S1 · Hero -->
+        <section class="section" id="s1">
+            <div class="text-block pos-center fade-text" data-section="1">
+                <span class="eyebrow">Apple Vision Pro</span>
+                <h1 class="hero-title">Welcome to<br><em>Spatial Computing</em></h1>
+                <p class="subtext">The era of computing has entered a new dimension.</p>
+                <div class="scroll-hint">
+                    <span>Scroll to explore</span>
+                    <div class="scroll-line"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- S2 · Spatial Computing -->
+        <section class="section" id="s2">
+            <div class="text-block pos-left fade-text" data-section="2">
+                <span class="eyebrow">Chapter 01</span>
+                <h2>Spatial<br>Computing</h2>
+                <p>Your apps live in your world. Vision Pro transforms any space into your personal canvas — infinite,
+                    immersive, and entirely yours.</p>
+                <div class="stat-row">
+                    <div class="stat"><span>23M</span><small>pixels per eye</small></div>
+                    <div class="stat"><span>100+</span><small>spatial apps</small></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- S3 · Precision Engineering -->
+        <section class="section" id="s3">
+            <div class="text-block pos-right fade-text" data-section="3">
+                <span class="eyebrow">Chapter 02</span>
+                <h2>Engineered<br>for the<br>Extraordinary</h2>
+                <p>Over 300 precision components. Formed aluminum and layered glass. Every element tuned to the micron.
+                </p>
+                <ul class="feature-list">
+                    <li>EyeSight display technology</li>
+                    <li>Apple M2 + R1 dual‑chip system</li>
+                    <li>Optical‑grade laminated glass</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- S4 · Revolution -->
+        <section class="section" id="s4">
+            <div class="text-block pos-center fade-text" data-section="4">
+                <span class="eyebrow">Chapter 03</span>
+                <h2>A Revolution<br>in <em>Perspective</em></h2>
+                <p>Navigate with your eyes. Tap with your fingers.<br>Speak with your voice. It just works.</p>
+            </div>
+        </section>
+
+        <!-- S5 · 360 Showcase -->
+        <section class="section" id="s5">
+            <div class="text-block pos-right fade-text" data-section="5">
+                <span class="eyebrow">Chapter 04</span>
+                <h2>See<br>Everything</h2>
+                <p>"The most advanced display system ever created for a personal device."</p>
+            </div>
+        </section>
+
+        <!-- S6 · Infinite Canvas -->
+        <section class="section" id="s6">
+            <div class="text-block pos-left fade-text" data-section="6">
+                <span class="eyebrow">Chapter 05</span>
+                <h2>Your Infinite<br>Canvas</h2>
+                <p>Place apps anywhere in space. Expand your workspace to any size. Create without limits.</p>
+                <div class="pill-tags">
+                    <span>FaceTime</span>
+                    <span>Productivity</span>
+                    <span>Entertainment</span>
+                    <span>Creativity</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- S7 · Beyond the Screen -->
+        <section class="section" id="s7">
+            <div class="text-block pos-right fade-text" data-section="7">
+                <span class="eyebrow">Chapter 06</span>
+                <h2>Beyond<br>the Screen</h2>
+                <p>With visionOS, you're not just using an app — you're inside it. Spatial audio surrounds you. Video
+                    wraps your world.</p>
+                <div class="stat-row">
+                    <div class="stat"><span>180°</span><small>field of view</small></div>
+                    <div class="stat"><span>4K+</span><small>per eye resolution</small></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- S8 · Return / CTA -->
+        <section class="section" id="s8">
+            <div class="text-block pos-center fade-text" data-section="8">
+                <span class="eyebrow">Apple Vision Pro</span>
+                <h2 class="hero-title">The next<br>chapter <em>begins.</em></h2>
+                <p class="subtext">Starting at $3,499 — available now.</p>
+                <div class="cta-row">
+                    <a href="#" class="btn-primary">Shop Vision Pro</a>
+                    <a href="#" class="btn-ghost">Learn more</a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+    <!-- /container -->
+
+    <!-- Progress bar -->
+    <div class="progress-bar" id="progress-bar"></div>
+
+    <!-- Section indicator -->
+    <nav class="section-dots" id="section-dots">
+        <span class="dot active" data-n="1"></span>
+        <span class="dot" data-n="2"></span>
+        <span class="dot" data-n="3"></span>
+        <span class="dot" data-n="4"></span>
+        <span class="dot" data-n="5"></span>
+        <span class="dot" data-n="6"></span>
+        <span class="dot" data-n="7"></span>
+        <span class="dot" data-n="8"></span>
+    </nav>
+
+    <!-- Top nav -->
+    <header class="top-nav">
+        <div class="nav-logo">
+            <svg width="22" height="22" viewBox="0 0 814 1000" fill="currentColor">
+                <path
+                    d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105-57.8-155.5-127.4C46 790.7 0 663 0 541.8c0-207.8 135.4-317.7 269-317.7 70.7 0 129.5 46.4 174 46.4 42.1 0 108.6-49.6 187.1-49.6zm-154.2-125.1c34.2-40.8 57.7-97.4 57.7-154 0-7.8-.6-15.6-1.9-22.1-55.1 2-120.8 36.8-160.2 83.4-31 35.5-60.6 91.4-60.6 148.9 0 8.4 1.3 16.9 1.9 19.4 3.2.6 8.4 1.3 13.6 1.3 49.7 0 110.1-33.6 149.5-76.9z" />
+            </svg>
+            <span>Vision Pro</span>
+        </div>
+        <nav class="nav-links">
+            <a href="#">Overview</a>
+            <a href="#">Features</a>
+            <a href="#">Tech Specs</a>
+            <a href="#">Buy</a>
+        </nav>
+    </header>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Three.js Import Map -->
+    <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+
+    <script type="module" src="main.js"></script>
+</body>
+
+</html>

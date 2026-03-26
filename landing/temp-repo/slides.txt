@@ -1,0 +1,95 @@
+1. Model Data
+Position X:
+8.31
+Position Y:
+2.18
+Position Z:
+-0.31
+Rotation X:
+0.00
+Rotation Y:
+0.00
+Rotation Z:
+0.00
+Camera Distance:
+8.60
+
+2. Model Data
+Position X:
+16.34
+Position Y:
+1.10
+Position Z:
+0.06
+Rotation X:
+0.00
+Rotation Y:
+0.00
+Rotation Z:
+0.00
+Camera Distance:
+16.38
+
+3. Model Data
+Position X:
+9.93
+Position Y:
+9.97
+Position Z:
+8.48
+Rotation X:
+0.00
+Rotation Y:
+0.00
+Rotation Z:
+0.00
+Camera Distance:
+16.38
+
+4. Model Data
+Position X:
+0.15
+Position Y:
+18.90
+Position Z:
+-0.08
+Rotation X:
+0.00
+Rotation Y:
+0.00
+Rotation Z:
+0.00
+Camera Distance:
+18.90
+
+5. Model Data
+Position X:
+Position Y:
+Position Z:
+Rotation X:
+Rotation Y:
+Rotation Z:
+8.32
+14.84
+-8.45
+0.00
+0.00
+0.00
+Camera Distance:
+18.90
+
+6. Model Data
+Position X:
+-12.44
+Position Y:
+12.24
+Position Z:
+7.46
+Rotation X:
+0.00
+Rotation Y:
+0.00
+Rotation Z:
+0.00
+Camera Distance:
+19.10

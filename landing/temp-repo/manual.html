@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vision Pro Interactive Viewer</title>
+    <link rel="stylesheet" href="manual.css" />
+</head>
+
+<body>
+
+    <!-- Info Panel -->
+    <div class="panel">
+        <h2>Model Data</h2>
+        <div class="row">Position X: <span id="posX">0</span></div>
+        <div class="row">Position Y: <span id="posY">0</span></div>
+        <div class="row">Position Z: <span id="posZ">0</span></div>
+
+        <div class="divider"></div>
+
+        <div class="row">Rotation X: <span id="rotX">0</span></div>
+        <div class="row">Rotation Y: <span id="rotY">0</span></div>
+        <div class="row">Rotation Z: <span id="rotZ">0</span></div>
+
+        <div class="divider"></div>
+
+        <div class="row">Camera Distance: <span id="camDist">0</span></div>
+    </div>
+
+    <!-- Three.js Import Map -->
+    <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+
+    <script type="module" src="manual.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apple Vision Pro</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/apple.css') }}">
+</head>
+
+<body>
+
+<header class="nav">
+    <div class="logo"> Vision Pro</div>
+    <div class="links">
+        <a>Overview</a>
+        <a>Features</a>
+        <a>Tech Specs</a>
+        <a>Buy</a>
+    </div>
+</header>
+
+<div class="container">
+
+    <section class="section">
+        <div class="content center">
+            <span class="chapter">APPLE VISION PRO</span>
+            <h1>Welcome to<br><em>Spatial Computing</em></h1>
+            <p>The era of computing has entered a new dimension.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="content right">
+            <span class="chapter">CHAPTER 02</span>
+            <h1>Engineered<br>for the<br>Extraordinary</h1>
+            <p>Over 300 precision components.</p>
+
+            <div class="specs">
+                <div>EyeSight display</div>
+                <div>Apple M2 + R1 chip</div>
+                <div>Optical laminated glass</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="content center">
+            <span class="chapter">CHAPTER 03</span>
+            <h1>A Revolution<br>in <em>Perspective</em></h1>
+            <p>Navigate with your eyes. Tap with your fingers. Speak with your voice.</p>
+        </div>
+    </section>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+
+<script type="module" src="{{ url_for('static', filename='js/apple.js') }}"></script>
+
+</body>
+</html>
